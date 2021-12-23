@@ -1,7 +1,8 @@
-import uuid, requests
+import uuid, requests, os, json
 from KEYS import yourazurekey
 subscription_key = yourazurekey
 location = 'global'
+
 def get_translation(text_input, language_output):
     base_url = 'https://api.cognitive.microsofttranslator.com'
     path = '/translate?api-version=3.0'
@@ -15,7 +16,6 @@ def get_translation(text_input, language_output):
         'X-ClientTraceId': str(uuid.uuid4())
     }
 
-    # В теле можно передать несколько объектов.
     body = [{
         'text': text_input
     }]
